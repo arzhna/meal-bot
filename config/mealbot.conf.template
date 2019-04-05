@@ -1,0 +1,41 @@
+[bot]
+names = 아침
+    점심
+    저녁
+
+face-url = https://api-storage.cloud.toast.com/v1/AUTH_a9395f8de5e84e20b244d0330d14ceff/do_not_remove/iu-bot.jpg
+
+messages = 조식이~ 왔어요~! :smiley:
+    밥 먹으러 갑시다~ :yum:
+    저녁 드실 분~! :raised_hand_with_fingers_splayed:
+
+pics = http://image.jjang0u.service.concdn.com/data3/chalkadak/306/201305/06/136783280487531.jpg
+    https://giant.gfycat.com/PointedDetailedIncatern.gif
+    https://4.bp.blogspot.com/-5WVbXDy3G-0/WdRJ-tyQ4gI/AAAAAAAAA44/oX_9_xi_G_E1QU1MxuqLk21bzSkPLNMMQCLcBGAs/s0/10107.gif
+    http://upload2.inven.co.kr/upload/2016/02/22/bbs/i11316360561.gif
+    https://2.bp.blogspot.com/-qR81qSXzEOU/WdRJ23U8ZOI/AAAAAAAAA4s/mcqKr-Ex-EIX8RGE3gzhyb1eJW8G6745QCLcBGAs/s0/07-22.gif
+    http://cfile3.uf.tistory.com/image/2714C44853A18E1307CE1C
+    http://t1.daumcdn.net/thumb/R1024x0/?fname=http://cfile299.uf.daum.net/image/267D6B3555192A2D15A99B
+    http://cfile27.uf.tistory.com/image/217FCE41573D071D1B1A0F
+    http://4.bp.blogspot.com/-Nf6dMWamkRA/UsAEAb9HALI/AAAAAAAAAHY/EvSz72Xq_Ts/s1600/ebbf459b95ab9f824e4d40bda5751740.gif
+    http://mblogthumb1.phinf.naver.net/20160305_24/kce5944_1457160135152ynkkI_GIF/AC_20160305-153646.gif?type=w800
+    http://file3.instiz.net/data/file3/2018/02/11/0/8/b/08b75ae0e0da468e52115123d8c2540b.gif
+    http://ext.fmkorea.com/files/attach/new/20160808/486616/343641908/432537001/9487b7ff198555daf05271007267f2a8.gif
+    http://file3.instiz.net/data/file3/2018/03/14/8/9/1/8917deec2ed04b084b0e7687e2d9d971.gif
+    http://file.mk.co.kr/meet/neds/2017/08/image_readtop_2017_556489_15031404492998184.jpg
+    https://i.pinimg.com/236x/50/fe/de/50fede004660aaeca7e9a9f686658950--design-seeds-drawings.jpg
+    http://image.sportsseoul.com/2015/11/23/news/20151123191946_yejin.jpg
+    http://db.kookje.co.kr/news2000/photo/2018/0228/L20180228.99099011311i1.jpg
+    https://t1.daumcdn.net/news/201802/28/mydaily/20180228213537891bqml.jpg
+    http://file.thisisgame.com/upload/tboard/user/2014/03/01/20140301022157_4217.gif
+    https://i.ytimg.com/vi/sQ1QMDGfzw8/maxresdefault.jpg
+    https://t1.daumcdn.net/cfile/tistory/1806E03D510D214829
+    http://cdnweb01.wikitree.co.kr/webdata/editor/201411/03/img_20141103164352_90ee452f.gif
+    http://image.toast.com/aaaaaac/jhj/danang-beef.gif
+
+lunch_number = { Put the number of your lunch menu }
+
+recommend_message = 오늘의 추천 메뉴는 %d번 입니다.
+
+[dooray]
+hook-url = { Put your dooray hook url }
