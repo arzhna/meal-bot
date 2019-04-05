@@ -49,7 +49,7 @@ class MealTime(Enum):
         now = datetime.datetime.now()
         if now.hour == 8:
             return MealTime.BREAKFAST
-        elif now.hour == 11:
+        elif now.hour == 12:
             return MealTime.LUNCH
         elif now.hour == 18:
             return MealTime.DINNER
