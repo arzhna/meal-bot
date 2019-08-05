@@ -1,12 +1,12 @@
 from ConfigParser import SafeConfigParser
-from mealbot.misc import pretty_dump
-import random
+from mealbot.misc import pretty_dump, pick_number
 
 
 class MealBotConfig(object):
     def __init__(self, config_path):
         self.parser = self._get_parser(config_path)
         self.mealbot = self._parse_bot_section()
+        self.resource = self._parse_resource_section()
         self.dooray = self._parse_dooray_section()
 
     def __repr__(self):
@@ -22,12 +22,17 @@ class MealBotConfig(object):
     def _parse_bot_section(self):
         section = 'bot'
         names = self.parser.getlist(section, 'names')
-        face_url = self.parser.get(section, 'face-url', face_url=None)
         msgs = self.parser.getlist(section, 'messages')
-        pics = self.parser.getlist(section, 'pics')
         num = self.parser.getint(section, 'lunch_number', num=0)
         recommend = self.parser.get(section, 'recommend_message', recommend='')
-        return BotConfig(names, face_url, msgs, pics, num, recommend)
+        return BotConfig(names, msgs, num, recommend)
+
+    def _parse_resource_section(self):
+        section = 'resource'
+        store = self.parser.get(section, 'store')
+        container = self.parser.get(section, 'container')
+        face_object = self.parser.get(section, 'face-object', face_object=None)
+        return ResourceConfig(store, container, face_object)
 
     def _parse_dooray_section(self):
         section = 'dooray'
@@ -36,21 +41,16 @@ class MealBotConfig(object):
 
 
 class BotConfig(object):
-    def __init__(self, names, face_url, messages, pics,
-                 lunch_number, recommend_message):
+    def __init__(self, names, messages, lunch_number, recommend_message):
         self.names = names
-        self.face_url = face_url
         self.messages = messages
-        self.pics = pics
         self.lunch_number = lunch_number
         self.recommend_message = recommend_message
 
     def __repr__(self):
         retval = dict()
         retval['names'] = self.names
-        retval['face_url'] = self.face_url
         retval['messages'] = self.messages
-        retval['pics'] = self.pics
         retval['lunch_number'] = self.lunch_number
         return pretty_dump(retval)
 
@@ -61,11 +61,27 @@ class BotConfig(object):
         return self.messages[index]
 
     def get_recommended_message(self):
-        return self.recommend_message % \
-               (random.randint(0, self.lunch_number - 1) + 1)
+        return self.recommend_message % (pick_number(self.lunch_number) + 1)
 
-    def get_random_pic(self):
-        return self.pics[random.randint(0, len(self.pics) - 1)]
+
+class ResourceConfig(object):
+    def __init__(self, store, container, face_object):
+        self.store = store
+        self.container = container
+        self.face_object = face_object
+
+    def __repr__(self):
+        retval = dict()
+        retval['store'] = self.store
+        retval['container'] = self.container
+        retval['face_object'] = self.face_object
+        return pretty_dump(retval)
+
+    def get_container_url(self):
+        return '/'.join([self.store, self.container])
+
+    def get_face_url(self):
+        return '/'.join([self.store, self.face_object])
 
 
 class DoorayConfig(object):
