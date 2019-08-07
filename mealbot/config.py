@@ -81,7 +81,7 @@ class ResourceConfig(object):
         return '/'.join([self.store, self.container])
 
     def get_face_url(self):
-        return '/'.join([self.store, self.face_object])
+        return '/'.join([self.store, self.container, self.face_object])
 
 
 class DoorayConfig(object):
