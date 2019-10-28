@@ -32,12 +32,17 @@ class MealBot(object):
             'text': self._get_message()
         }
 
+    def _get_obj_url(self, obj):
+        url = self.container_url
+        url += obj if url[-1] == '/' else '/' + obj
+        return url
+
     def _get_message(self):
         message = self.conf.mealbot.get_message(self.meal_time.value) + '\n'
         if self.meal_time == MealTime.LUNCH:
             message += self.conf.mealbot.get_recommended_message() + '\n'
         selected = str(self._pick_object(self._get_obj_list()).get('name'))
-        message += self.container_url + '/' + selected
+        message += self._get_obj_url(selected)
         return message
 
     def _pick_object(self, obj_list):

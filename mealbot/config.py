@@ -30,7 +30,7 @@ class MealBotConfig(object):
     def _parse_resource_section(self):
         section = 'resource'
         store = self.parser.get(section, 'store')
-        container = self.parser.get(section, 'container')
+        container = self.parser.get(section, 'container', container='')
         face_object = self.parser.get(section, 'face-object', face_object=None)
         return ResourceConfig(store, container, face_object)
 
